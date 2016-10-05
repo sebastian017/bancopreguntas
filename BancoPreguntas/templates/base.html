@@ -1,0 +1,150 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+   
+    <link href="{% static 'css/personal.css'%}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ag-grid/ag-grid.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ag-grid/theme-fresh.css'%}">
+
+    
+    <title>{%block title%}{%endblock%}</title>
+     <!-- Bootstrap core CSS -->
+    
+    <link href="{% static 'css/bootstrap/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap/bootstrap-theme.min.css'%}" rel="stylesheet">
+   
+    <!-- Custom styles for this tmplate -->
+    <link href="{% static 'js/navbar-static-top.css'%}" rel="stylesheet">
+
+    
+    <script src="{%static 'js/ie-emulation-modes-warning.js'%}"></script>
+
+  </head>
+
+   <body>
+
+<div class="content ng-cloak"></div>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">VioTurismo</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          {%block nav%}
+
+          <li  class= "{% if nbar == 'home' %}active{% endif %}"><a href="#">Home</a></li>
+            <li class= "{% if nbar == 'acerca' %}active{% endif %}"><a href="#">Acerca</a></li>
+            <li class= "{% if nbar == 'contacto' %}active{% endif %}"><a href="#">Contacto</a></li>
+             <li class= "{% if nbar == 'ubicacion' %}active{% endif %}"><a href="#">Ubicacion</a></li>
+            <li class="dropdown">
+              <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sitios <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+              {%block sitios%}
+                <li><a href="#">Agregar sitios</a></li>
+                <li><a href="#">Buscar sitios</a></li>
+                <li><a href="#">Compartir sitios</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Asignar Rutas</a></li>
+                <li><a href="#">Ver Rutas</a></li>
+               {%endblock%} 
+              </ul>
+            </li>
+             <li class="dropdown">
+
+              <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servicios <span class="caret"></span></a>
+              
+              <ul class="dropdown-menu">
+              {%block servicios%}
+                <li><a href="#">Agregar Servicios</a></li>
+                <li><a href="#">Buscar Servicios</a></li>
+                <li><a href="#">Compartir Servicios</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Estadisticas</a></li>
+              {%endblock  %}
+               </ul>
+              </li>
+             <li class="dropdown">
+              <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Experiencia <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+              {%block experiencia%}
+                <li><a href="#">Agregar sitios</a></li>
+                <li><a href="#">Buscar sitios</a></li>
+                <li><a href="#">Compartir sitios</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Asignar Rutas</a></li>
+                <li><a href="#">Ver Rutas</a></li>
+              {%endblock%}  
+              </ul>
+            </li>
+           {%endblock%} 
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
+            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+        
+      </div>
+    </nav>
+
+
+    <div class="container">
+      {%block container%}
+       <div class="jumbotron">
+          {%block jumbotron%}
+            
+            <p class ="titulo">
+             {%block titulo%}
+                 {%endblock%}</p>
+          
+          {%endblock%}
+        </div>
+      {%endblock%}
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  >
+
+
+
+ <script src="{% static 'js/jquery/jquery.js' %}"></script>
+ <script src="{% static  'js/bootstrap/bootstrap.min.js'%}"></script>
+ <script src="{% static  'js/angular/angular.js'%}"></script> 
+ <script src="{% static  'js/ag-grid/ag-grid.js'%}"></script>
+ <script src="{% static  'js/rutas.js'%}"></script>
+  
+ 
+    {% if nbar == 'rutas' %}
+     
+     
+
+      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&;amp;language=es"></script>
+     <script src="{% static  'js/mapgoogle.js'%}"></script>
+
+    {%endif%}
+  
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js'%}"></script>
+   
+
+  </body>
+</html>

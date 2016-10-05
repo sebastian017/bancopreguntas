@@ -1,0 +1,18 @@
+{%extends 'base.html'%}	
+ {%block jumbotron%}
+				<form  action={{retorno}} method="POST">
+							{%csrf_token%} 
+							{{form.as_p}}
+							<p>
+								<input type="submit" value="guardar" id="enviar">
+							</p>
+				</form>	
+					<div id="data" ng-app="app">
+					<span ng-controller="control">
+						<div ag-grid="gridOptions" style="height: 100%; width:100%"
+						class="ag-fresh">
+
+						</div>
+					</span>
+					</div>
+{%endblock%}
